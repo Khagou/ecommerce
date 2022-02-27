@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('accueil');
 });
+
+Route::controller(ProductController::class)->group(function (){
+    Route::get('/products', 'accueil');
+    Route::get('/products/{products}', 'show');
+});
