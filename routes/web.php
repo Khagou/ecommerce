@@ -21,3 +21,7 @@ Route::controller(ProductController::class)->group(function (){
     Route::get('/products', 'accueil');
     Route::get('/products/{products}', 'show');
 });
+
+Route::controller(CategoryController::class)->group(function (){
+    Route::get
+})
