@@ -23,5 +23,13 @@ Route::controller(ProductController::class)->group(function (){
 });
 
 Route::controller(CategoryController::class)->group(function (){
-    Route::get
-})
+    Route::get('/category', 'accueil');
+    Route::get('/category/{category}', 'show');
+});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
