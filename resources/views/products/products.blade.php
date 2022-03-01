@@ -30,19 +30,19 @@
                     <li class="list-group-item">
                         <div class="form-check">
                             <input type="checkbox" id="color-red" name="color[]" value="bleu" class="form-check-input">
-                        <label for="color-bleu" class="form-check-label">Bleu</label>
+                            <label for="color-bleu" class="form-check-label">Bleu</label>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="form-check">
                             <input type="checkbox" id="color-red" name="color[]" value="rouge" class="form-check-input">
-                            <label for="color-red" class="form-check-input"></label>
+                            <label for="color-red" class="form-check-label">Rouge</label>
                         </div>
                     </li>
                     <li class="list-group-item">
                         <div class="form-check">
                             <input type="checkbox" id="color-vert" name="color[]" value="vert" class="form-check-input">
-                            <label for="color-vert" class="form-check-input"></label>
+                            <label for="color-vert" class="form-check-label">Vert</label>
                         </div>
                     </li>
                     <li class="list-group-item">

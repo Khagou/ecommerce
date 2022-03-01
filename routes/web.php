@@ -1,8 +1,8 @@
 <?php
-use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\CategoriesController;
-use Illuminate\Support\Facades\Route;
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,22 +19,12 @@ Route::get('/', function () {
 });
 
 Route::controller(ProductsController::class)->group(function (){
-    Route::get('/products', 'accueil');
+    Route::get('/products', 'index');
     Route::get('/products/{products}', 'show');
 });
 
-Route::controller(CategoriesController::class)->group(function (){
-    Route::get('/category', 'accueil');
-    Route::get('/category/{category}', 'show');
+Route::controller(CategoryController::class)->group(function (){
+    Route::get('/categories', 'accueil');
+    Route::get('/categories/{categories}', 'show');
 });
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
