@@ -20,7 +20,7 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
-            <li class="nav-item"><a href="/produits" class="nav-link">Produits</a></li>
+            <li class="nav-item"><a href="/products" class="nav-link">Produits</a></li>
             <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
         </ul>
 
