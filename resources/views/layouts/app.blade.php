@@ -23,18 +23,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container ">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container ">
+            <a class="navbar-brand" href="/">Ecommerce</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarExempleDefault" aria-controls="navbarExempleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+             </button>
+         <div class="navbar-collapse justify-content-end collapse" id="navbarExempleDefault">    
              <ul class="navbar-nav me-auto">
-                 <a class="navbar-brand" href="/">Ecommerce</a>
-                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-                 </button>
                  <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
-                 <li class="nav-item"><a href="/produits" class="nav-link">Produits</a></li>
+                 <li class="nav-item"><a href="/products" class="nav-link">Produits</a></li>
                  <li class="nav-item"><a href="/contact" class="nav-link">Contact</a></li>
              </ul>
+         
      
              <form action="" class="d-flex" method="post" class="form-inline my-2 my-lg-0 d-inline-flex">
                  <div class="input-group input-group-sm">
@@ -85,7 +86,8 @@
                          </div>
                      </li>
                  @endguest  
-                 </ul> 
+                 </ul>
+            </div> 
          </div>
          </nav>
 

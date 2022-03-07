@@ -94,7 +94,7 @@
         </div>
         <div class="col">
             <div class="row">
-                @foreach ($products as $product)
+                @foreach ($category->products as $product)
                 <div class="col-12 col-md-6 col-lg-4 md-4">
                     <div class="card">
                             

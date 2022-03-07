@@ -4,20 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\Products;
 use Illuminate\Http\Request;
+use App\Models\Categories;
+
 
 class ProductsController extends Controller
 {
-    public function index()
+
+    public function show(products $products)
     {
-        return view ('products.products',[
-            'products' => Products::latest('created_at')->paginate(6)
+        return view ('products.show',[
+            'products' => $products
         ]);
     }
 
-    public function show(Products $product)
+    public function lastOne()
     {
-        return view ('products.show',[
-            'products' => $product
+        return view('products.products',[
+            'latest' => products::latest('created_at')->first(),
+            'categories' => Categories::latest('created_at')->get(),
+            'products' => products::latest('created_at')->paginate(6)
         ]);
     }
 }

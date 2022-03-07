@@ -1,7 +1,15 @@
 @extends('layouts.base')
 
 @section('content')
-<div class="container">
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Ecommerce</h1>
+        <p class="lead text-muted mb-0">blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla blabla </p>
+    </div>
+
+    
+</section>
+<div class="container ">
     <div class="row">
         <div class="col">
             <div class="carousel slide" id="carouselExempleIndicators" data-bs-ride='carousel'>
@@ -12,15 +20,19 @@
                 </ol>
 
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://dummyimage.com/855x365/55595c/fff" class="w-100 d-block" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://dummyimage.com/855x365/a30ca3/fff" class="w-100 d-block" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://dummyimage.com/855x365/1443ff/fff" class="w-100 d-block" alt="Third slide">
-                    </div>
+                    @foreach ($randomProducts as $Product)
+                    
+                        <div class="carousel-item  @if ($loop->first) active @endif">
+                            <img src="{{ $Product->image}}" class="w-100 d-block" alt="First slide">
+                        </div>
+                    
+                        {{-- <div class="carousel-item">
+                            <img src="{{ $Product->image}}" class="w-100 d-block" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ $Product->image}}" class="w-100 d-block" alt="Third slide">
+                        </div> --}}
+                        @endforeach 
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -40,15 +52,17 @@
                     <i class="fa fa-heart"></i>
                     " Coup de coeur "
                 </div>
-                <img src="https://dummyimage.com/600x400/55595c/fff" alt="Card image capS" class="img-fluid border-0">
+                
+                    <img src="{{ $randomFavoris->image }}" alt="Card image capS" class="img-fluid border-0">
+
                 <div class="card-body">
                     <h4 class="card-title text-center">
-                        <a href="product.html" title="View Product"> Produit</a>
+                        <a href="product.html" title="View Product"> {{$randomFavoris->nom}}</a>
                     </h4>
-                    <p class="card-text">Lorem ipsum dolor sit, amet.</p>  
+                    <p class="card-text">{{$randomFavoris->description}}</p>  
                     <div class="row">
                         <div class="col">
-                            <p class="btn btn-danger w-100">99,00 €</p>
+                            <p class="btn btn-danger w-100">{{$randomFavoris->prix}} €</p>
                         </div>
                         <div class="col">
                             <a href="product.html" class="btn btn-success w-100">Voir</a>
@@ -71,19 +85,20 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
+                        @foreach ($lastProducts as $Products)
                         <div class="col-sm">
                             <div class="card">
-                                <img src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap" class="card-img-top">
-                                    <div class="card-body">
+                                <img src="{{ $Products->image}}" alt="Card image cap" class="card-img-top">
+                                    <div class="card-body ">
                                         <h4 class="card-title">
-                                            <a href="product.html" title="VIew Product">Produit</a>
+                                            <a href="product.html" title="VIew Product">{{$Products->nom}}</a>
                                         </h4>
                                         <p class="card-text">
-                                            Lorem ipsum dolor sit amet consectetur. 
+                                            {{$Products->description}}
                                         </p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger w-100">99,00 €</p>
+                                                <p class="btn btn-danger w-100">{{$Products->prix}}</p>
                                             </div>
                                             <div class="col">
                                                 <a href="cart.htm" class="btn btn-success w-100">Ajouter</a>
@@ -91,16 +106,15 @@
                                         </div>
                                     </div>
                             </div>
-                        </div>
-                        
-                        
+                        </div>        
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+    
 <div class="container mt-3">
     <div class="row">
         <div class="col-sm">
@@ -111,19 +125,22 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
+                        @foreach ($bestProducts as $best)
                         <div class="col-sm">
                             <div class="card">
-                                <img src="https://dummyimage.com/600x400/55595c/fff" alt="Card image cap" class="card-img-top">
+                                
+                                
+                                <img src="{{$best->image}}" alt="Card image cap" class="card-img-top">
                                     <div class="card-body">
                                         <h4 class="card-title">
-                                            <a href="product.html" title="VIew Product">Produit</a>
+                                            <a href="product.html" title="View Product">{{$best->nom}}</a>
                                         </h4>
                                         <p class="card-text">
-                                            Lorem ipsum dolor sit amet consectetur. 
+                                            {{$best->description}}
                                         </p>
                                         <div class="row">
                                             <div class="col">
-                                                <p class="btn btn-danger w-100">99,00 €</p>
+                                                <p class="btn btn-danger w-100">{{ $best->prix}} €</p>
                                             </div>
                                             <div class="col">
                                                 <a href="cart.htm" class="btn btn-success w-100">Ajouter</a>
@@ -132,6 +149,7 @@
                                     </div>
                             </div>
                         </div>
+                        @endforeach
                         
                         
                     </div>
@@ -143,50 +161,5 @@
 
 {{-- Footer --}}
 
-<footer class="text-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-lg-4 col-xl-3">
-                <h5>A propos</h5>
-                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit..</p>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
-                <h5>Informations</h5>
-                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                <ul class="list-unstyled">
-                    <li><a href="http://">Link 1</a></li>
-                    <li><a href="http://">Link 2</a></li>
-                    <li><a href="http://">Link 3</a></li>
-                    <li><a href="http://">Link 4</a></li>
-                </ul>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
-                <h5>Others links</h5>
-                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                <ul class="list-unstyled">
-                    <li><a href="http://">Link 1</a></li>
-                    <li><a href="http://">Link 2</a></li>
-                    <li><a href="http://">Link 3</a></li>
-                    <li><a href="http://">Link 4</a></li>
-                </ul>
-            </div>
-            <div class="col-md-4 col-lg-3 col-xl-3">
-                <h5>Contact</h5>
-                <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                <ul class="list-unstyled">
-                    <li><i class="fa fa-home ms-2"></i> My compagny</li>
-                    <li><i class="fa fa-envelope ms-2"></i> email@exemple.com</li>
-                    <li><i class="fa fa-phone ms-2"></i> + 33 12 14 15 16</li>
-                    <li><i class="fa fa-print ms-2"></i > + 33 12 15 14 16</li>
-                </ul>
-            </div>
-            <div class="col-12 copyright mt-3">
-                <p class="float-left">
-                    <a href="#">Back to top</a>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
+
 @endsection

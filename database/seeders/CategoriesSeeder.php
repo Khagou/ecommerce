@@ -4,9 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Products;
 
-class ProductsSeeder extends Seeder
+class CategoriesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +14,8 @@ class ProductsSeeder extends Seeder
      */
     public function run()
     {
-        Products::factory(15)->create();
+        categories::factory(5)
+        ->hasProperties(rand(1,6))
+        ->create();
     }
 }

@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoriesController;
+use App\Models\Products;
+use App\Models\Categories;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,16 +18,33 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('accueil');
+    return view('accueil', [
+        'randomProducts' => Products::inRandomOrder()->limit(3)->get(),
+        'randomFavoris' => Products::where('favoris', 1)->inRandomOrder()->first(),
+        'lastProducts' => Products::latest()->limit(4)->get(),
+        'bestProducts' => Products::latest()->limit(4)->get(),
+    ]);
 });
 
 Route::controller(ProductsController::class)->group(function (){
-    Route::get('/products', 'index');
-    Route::get('/products/{products}', 'show');
+    // Route::get('/products', 'index');
+    Route::get('/products', 'lastOne');
+    Route::get('/products/{products}-{slug}', 'show');
+   
+    
 });
 
-Route::controller(CategoryController::class)->group(function (){
-    Route::get('/categories', 'accueil');
-    Route::get('/categories/{categories}', 'show');
+Route::get('/contact', function() {
+    return view('contact');
 });
 
+
+Route::controller(CategoriesController::class)->group(function (){
+    Route::get('/categories/{category} ', 'index');
+    
+});
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
